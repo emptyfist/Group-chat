@@ -66,3 +66,13 @@ The problem with pushing is that it converts one external request (one message) 
 The problem with pulling is that one message is read over and over again by different clients (Read Amplification). Going along with this approach will surely overwhelm the database.
 
 My idea is that we can build a hybrid system with the above logic. For smaller groups or inactive groups, it is okay to do pushing since write amplification won’t stress out the servers. For very active and large groups, clients must query the HTTP server regularly for messages.
+
+## Description for Components
+
+1. Chat Service: each online user maintains a WebSocket connection with a WebSocket server in the Chat Service. Outgoing and incoming chat messages are exchanged here.
+2. Web Service: It handles all RPC calls except send_message(). Users talk to this service for authentication, join/leave groups, etc. No WebSocket is needed here since all calls are client-initiated and HTTP-based.
+3. Notification Service: When the user is offline, messages are pushed to external phone manufacturers’ notification servers.
+4. Presence Service: When a user is typing or changes status, the Presence Service is responsible for figuring out who gets the push update.
+5. User Mapping Service: Our chat service is globally distributed. We need to keep track of the server ID of the user’s session host.
+
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
