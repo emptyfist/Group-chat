@@ -75,4 +75,4 @@ My idea is that we can build a hybrid system with the above logic. For smaller g
 4. Presence Service: When a user is typing or changes status, the Presence Service is responsible for figuring out who gets the push update.
 5. User Mapping Service: Our chat service is globally distributed. We need to keep track of the server ID of the user’s session host.
 
-![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+![This is an image](https://github.com/emptyfist/Group-chat/blob/main/image.png)
