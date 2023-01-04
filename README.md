@@ -76,3 +76,10 @@ My idea is that we can build a hybrid system with the above logic. For smaller g
 5. User Mapping Service: Our chat service is globally distributed. We need to keep track of the server ID of the user’s session host.
 
 ![This is an image](https://github.com/emptyfist/Group-chat/blob/main/image.png)
+
+## Description for TDD
+
+The main test point is interaction with Web Socket server(Ofc, interaction between FE component is important).
+Use Jest or Jasmine to test FE component and interaction between server.
+
+To ensure that my app is fully tested before deploy, will use CircleCi or Pipeline and make test before deploying to server.
